@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cook Sign Up</title>
+  <link rel="stylesheet" href="vendor.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cook Sign Up</h2>
+        <form id="cookForm">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="daily-limit">Daily Meal Limit:</label>
+            <input type="number" id="daily-limit" name="daily-limit" min="1" max="100" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="free-time">Available Free Time:</label>
+            <input type="text" id="free-time" name="free-time" placeholder="e.g., 3 PM - 7 PM" required>
+          </div>
+          <div class="form-group">
+            <label for="meal-type">Meal Type:</label>
+            <select id="meal-type" name="meal-type" required>
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="items">Items Cook Can Prepare:</label>
+            <select id="items" name="items" multiple required>
+              <option value="eggs">Eggs</option>
+              <option value="pasta">Pasta</option>
+              <option value="rice">Rice</option>
+              <option value="salad">Salad</option>
+              <option value="pizza">Pizza</option>
+              <option value="soup">Soup</option>
+            </select>
+            <small>Select multiple items you can cook (hold Ctrl or Cmd to select more than one).</small>
+          </div>
+    
+          <div class="form-group">
+            <label for="min-time">Minimum Time Per Dish (in minutes):</label>
+            <input type="number" id="min-time" name="min-time" min="5" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="num-dishes">Number of Dishes You Can Prepare:</label>
+            <input type="number" id="num-dishes" name="num-dishes" min="1" max="10" required>
+          </div>
+          <div class="form-group">
+            <label for="register-day">Register For The Day:</label>
+            <input type="date" id="register-day" name="register-day" required>
+          </div>
+    
+          <button type="submit" class="btn">Sign Up</button>
+        </form>
+    
+        <div id="confirmationMessage" class="confirmation-message" style="display:none;">
+          <p>Thank you for signing up! We will contact you soon.</p>
+        </div>
+      </div>
+    
+      <script>
+        document.getElementById('cookForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Validate the form inputs
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const dailyLimit = document.getElementById('daily-limit').value;
+  const freeTime = document.getElementById('free-time').value.trim();
+  const mealType = document.getElementById('meal-type').value;
+  const items = Array.from(document.getElementById('items').selectedOptions).map(option => option.value);
+  const minTime = document.getElementById('min-time').value;
+  const numDishes = document.getElementById('num-dishes').value;
+  const registerDay = document.getElementById('register-day').value;
+
+  if (name && email && dailyLimit && freeTime && mealType && items.length > 0 && minTime && numDishes && registerDay) {
+    document.getElementById('confirmationMessage').style.display = 'block';
+    document.getElementById('cookForm').style.display = 'none';
+    console.log({
+      name,
+      email,
+      dailyLimit,
+      freeTime,
+      mealType,
+      items,
+      minTime,
+      numDishes,
+      registerDay
+    });
+  } else {
+    alert('Please fill out all fields.');
+  }
+});
+      </script>    
+</body>
+</html>

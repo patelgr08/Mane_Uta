@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #FF5722;
+}
+.food-item {
+    margin-bottom: 20px;
+}
+.food-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+.food-item h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #333;
+}
+.rating {
+    display: flex;
+    align-items: center;
+}
+.star {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.star:hover,
+        .star.selected {
+            color: #FFD700;
+        }
+        .description-box {
+            display: none;
+            margin-top: 20px;
+        }
+        .description-box label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .description-box textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .description-box button {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .description-box button:hover {
+            background-color: #45a049;
+        }

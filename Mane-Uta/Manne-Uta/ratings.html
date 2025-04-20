@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Rating</title>
+    <link rel="stylesheet" href="ratings.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rate Your Favorite Food</h1>
+        
+        <div class="food-item">
+            <img src="food1.avif" alt="Food Item">
+            <h2>Wada</h2>
+            <div class="rating">
+                <span class="star" onclick="selectRating(this, 1, 'Wada')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 2, 'Wada')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 3, 'Wada')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 4, 'Wada')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 5, 'Wada')">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="food-item">
+            <img src="food2.avif" alt="Food Item">
+            <h2>Tomato Bath</h2>
+            <div class="rating">
+                <span class="star" onclick="selectRating(this, 1, 'Tomato Bath')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 2, 'Tomato Bath')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 3, 'Tomato Bath')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 4, 'Tomato Bath')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 5, 'Tomato Bath')">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="food-item">
+            <img src="food3.avif" alt="Food Item">
+            <h2>Paneer butter masala</h2>
+            <div class="rating">
+                <span class="star" onclick="selectRating(this, 1, 'Paneer butter masala')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 2, 'Paneer butter masala')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 3, 'Paneer butter masala')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 4, 'Paneer butter masala')">&#9733;</span>
+                <span class="star" onclick="selectRating(this, 5, 'Paneer butter masala')">&#9733;</span>
+            </div>
+        </div>
+        <div class="description-box" id="descriptionBox">
+            <label for="description">Please describe your experience:</label>
+            <textarea id="description" rows="4" placeholder="Write your feedback here..."></textarea>
+            <button onclick="submitDescription()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let currentFood = '';
+
+        function selectRating(star, rating, food) {
+            currentFood = food;
+            const stars = star.parentElement.children;
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].classList.remove('selected');
+                if (i < rating) {
+                    stars[i].classList.add('selected');
+                }
+            }
+            showDescriptionBox();
+        }
+
+        function showDescriptionBox() {
+            const descriptionBox = document.getElementById('descriptionBox');
+            descriptionBox.style.display = 'block';
+        }
+
+        function submitDescription() {
+            const description = document.getElementById('description').value;
+            if (description.trim() !== '') {
+                window.location.href = 'thankyou.html';
+                document.getElementById('description').value = '';
+                document.getElementById('descriptionBox').style.display = 'none';
+            } else {
+                alert('Please provide a description before submitting.');
+            }
+        }
+    </script>
+</body>
+</html>

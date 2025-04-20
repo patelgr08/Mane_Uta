@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManeUta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style2.css">
+    </head>
+<body>
+    <div>
+      <div class="top1">
+        <button id="logo" onclick="refreshPag()"><img src="logo.jpeg" alt="logo" id="logo1"></button>
+        <i class="fa-sharp fa-solid fa-pot-food"></i>
+            <button id="search">Search</button>
+            <a href="offers" id="offers"><i class="fa-solid fa-award"></i>Offers</a>
+            <a href="help" id="help"><i class="fa-solid fa-circle-exclamation"></i>Help</a>
+            <button id="signin" onclick="sign()">Sign In</button>
+            <button id="contact">Contact Us</button>
+      </div>
+        <div id="searchbar">
+          <input type="text" id="searchInput" placeholder="Search for a name...">
+          <button id="searchButton">Search ⌕</button>
+
+        </div>
+        <div id="nameList" style="display:none;">
+          <ul>
+              <li>Vada</li>
+              <li>Tomato vada</li>
+              <li>Butter Paneer</li>
+              <li>Benne Dose</li>
+              <li>Nan Parota</li>
+              <li>Palow</li>
+          </ul>
+       </div>
+  
+      <div id="menu">
+        <a href="dosa" id="dosa"><img src="dosa.jpeg" alt="dosa" id="dosa"></a> 
+        <a href="idli" id="idli"><img src="idli.jpeg" alt="idli" id="idli"></a>
+        <a href="parotta" id="parotta"><img src="parotta.jpeg" alt="parotta" id="parotta"></a>
+        <a href="poori" id="poori"><img src="poori.jpeg" alt="poori" id="poori"></a>
+        <a href="egg" id="egg"><img src="omelette.jpeg" alt="egg" id="egg"></a>
+        <a href="biriyani" id="biriyani"><img src="biriyani.jpeg" alt="biriyani" id="biriyani"></a>
+        <a href="paratha" id="paratha"><img src="paratha.jpeg" alt="paratha" id="paratha"></a>
+        <a href="khichidi" id="khichidi"><img src="khichdi.jpeg" alt="khichidi" id="khichidi"></a>
+      </div>
+      <hr>
+      <div class="wish">
+        <h3 id="the">
+           Hey there give a try for these!!
+        </h3>
+        <div id="dosan">
+         <a href="dosa1"><img src="dosa1.avif" alt="dosa1" id="dosa1">
+            <div id="dosa11">
+              <h1 id="dosa12">About and Location</h1>
+            </div>
+         </a>
+         <a href="dosa2"><img src="dosa2.avif" alt="dosa2" id="dosa2">
+          <div id="dosa21">
+            <h1 id="dosa22">About and Location</h1>
+          </div>
+        </a>
+         <a href="dosa3"><img src="dosa3.jpeg" alt="dosa3" id="dosa3">
+          <div id="dosa31">
+            <h1 id="dosa32">About and Location</h1>
+          </div>
+        </a>
+         <a href="dosa4"><img src="dosa4.avif" alt="dosa4" id="dosa4">
+          <div id="dosa41">
+            <h1 id="dosa42">About and Location</h1>
+          </div>
+        </a>
+        </div>
+      </div>
+      <hr>
+      <button onclick="filter()" id="filter"><i class="fa-duotone fa-regular fa-grid-2"></i>Filters</button>
+      <div id="view">
+         <div id="block">
+          <img src="food1.avif" alt="food1" id="food1">
+          <h2 id="vada">Vada</h2>
+          <p id="price1">Price:₹15</p>
+          <button class="c1" onclick="addToCart('vada', 15, 1)">Add to Cart</button>
+        </div>
+         <div id="block">
+          <img src="food2.avif" alt="food2" id="food2">
+          <h2 id="tomato">Tomato bath</h2>
+          <p id="price2">Price:₹40</p>
+          <button class="c2" onclick="addToCart('Tomato bath', 40, 1)">Add to Cart</button>
+        </div>
+         <div id="block">
+          <img src="food3.avif" alt="food3" id="food3">
+          <h2 id="butter">Butter Paneer</h2>
+          <p id="price3">Price:₹120</p>
+          <button class="c3" onclick="addToCart('Butter Paneer', 120, 1)">Add to Cart</button>
+        </div>
+         <div id="block">
+          <img src="food4.avif" alt="food4" id="food4">
+          <h2 id="benne">Benne Dose</h2>
+          <p id="price4">Price:₹100</p>
+          <button class="c4" onclick="addToCart('Benne Dose', 100, 1)" >Add to Cart</button>
+        </div>
+         <div id="block">
+          <img src="food5.avif" alt="food5" id="food5">
+          <h2 id="nan">Nan Parota</h2>
+          <p id="price5">Price:₹160</p>
+          <button class="c5" onclick="addToCart('Nan Parota', 160, 1)" >Add to Cart</button>
+        </div>
+         <div id="block">
+          <img src="food6.avif" alt="food6" id="food6">
+          <h2 id="palow">Palow</h2>
+          <p id="price6">Price:₹60</p>
+          <button class="c6" onclick="addToCart('Palow', 60, 1)">Add to Cart</button>
+        </div>
+      </div>
+      <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cartItems"></ul>
+        <p id="totalPrice">Total: ₹0</p>
+    </div>
+    <button onclick="buy()" class="btn" id="buyNowBtn">Buy Now</button>
+  
+      <div id="footer">
+       <p id="limited">© 2024 ManeUta Limited</p>
+       <div>
+       <ul id="Contactus">
+         <li>
+           <a href="contact" id="x11">Contact Us</a>
+         </li>
+         <br>
+         <li>
+           <a href="help" id="x1">Help & Support</a>
+         </li>
+         <br>
+         <li>
+           <a href="partner" id="x1">Partner with Us</a>
+         </li>
+         <br>
+         <li>
+           <a href="Ride" id="x1">Ride with Us</a>
+         </li>
+       </ul>
+       </div>
+       <div>
+        <ul id="contactus2">
+         <li>
+           <a href="legal" id="y11">Legal</a>
+         </li>
+         <li>
+           <a href="terms" id="y1">Terms & Conditiond</a>
+         </li>
+         <br>
+         <li>
+           <a href="cookie" id="y1">Cookie policy</a>
+         </li>
+         <br>
+         <li>
+           <a href="privacy" id="y1">Privacy Policy</a>
+         </li>
+         <br>
+         <li>
+           <a href="investor" id="y1">Investor Relations</a>
+         </li>
+        </ul>
+        <p id="links">
+           Social Links
+           <br>
+           <i class="fa-brands fa-linkedin linkedin"></i>
+           <i class="fa-brands fa-instagram instagram"></i>
+           <i class="fa-brands fa-facebook facebook"></i>
+           <i class="fa-brands fa-pinterest pintrest"></i>
+           <i class="fa-brands fa-square-x-twitter"></i>
+        </p>
+        </div>
+      </div>
+<script src="script2.js"></script>
+</body>
+</html>
